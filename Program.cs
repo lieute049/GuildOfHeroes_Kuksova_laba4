@@ -27,3 +27,22 @@ foreach (Hero hero in guild.Heroes) {
     Console.WriteLine(hero.GetInfo());
     Console.WriteLine();
 }
+
+
+int strongCount = 0;
+foreach (Hero hero in guild.Heroes) {
+    if (hero.Health >= 120) {
+        strongCount += 1;
+    }
+}
+Console.WriteLine($"Могут нести тяжёлые ящики (здоровье от 120): {strongCount}");
+
+if (guild.Heroes.Count > 0) {
+    Hero strongest = guild.Heroes[0];
+    foreach (Hero hero in guild.Heroes) {
+        if (hero.Health > strongest.Health) {
+            strongest = hero;
+        }
+    }
+    Console.WriteLine($"Самый здоровый: {strongest.Name} ({strongest.Health})");
+}
